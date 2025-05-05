@@ -19,26 +19,25 @@ document.addEventListener("DOMContentLoaded", () => {
     "GitHub was launched in 2008 — the same year Iron Man released!"
   ];
 
-  // Handle submit button click
-  if (submitBtn) {
-    submitBtn.addEventListener("click", () => {
-      const name = nameInput?.value.trim();
-      const email = emailInput?.value.trim();
-      const message = messageInput?.value.trim();
+ submitBtn.addEventListener("click", (event) => {
+  event.preventDefault(); // prevents page reload
 
-      if (!name || !email || !message) {
-        alert("Please fill in all the fields before submitting.");
-        return;
-      }
+  const name = nameInput?.value.trim();
+  const email = emailInput?.value.trim();
+  const message = messageInput?.value.trim();
 
-      alert("Thank you for your message!");
-      
-      // Optionally clear the form
-      nameInput.value = '';
-      emailInput.value = '';
-      messageInput.value = '';
-    });
+  if (!name || !email || !message) {
+    alert("Please fill in all the fields before submitting.");
+    return;
   }
+
+  alert("Thank you for your message!");
+
+  nameInput.value = '';
+  emailInput.value = '';
+  messageInput.value = '';
+});
+
 
   // Toggle fun fact section visibility
   if (toggleMoreBtn && game) {
