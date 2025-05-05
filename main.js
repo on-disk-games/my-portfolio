@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Get DOM elements
   const submitBtn = document.getElementById("submitBtn");
+  const nameInput = document.querySelector(".contact-form input[type='text']");
+  const emailInput = document.querySelector(".contact-form input[type='email']");
+  const messageInput = document.querySelector(".contact-form textarea");
   const game = document.getElementById("game");
   const fact = document.getElementById("fact");
   const toggleMoreBtn = document.getElementById("toggleMoreBtn");
@@ -17,24 +20,39 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   // Handle submit button click
-  submitBtn?.addEventListener("click", () => {
-    alert("Thank you for your message!");
-  });
+  if (submitBtn) {
+    submitBtn.addEventListener("click", () => {
+      const name = nameInput?.value.trim();
+      const email = emailInput?.value.trim();
+      const message = messageInput?.value.trim();
+
+      if (!name || !email || !message) {
+        alert("Please fill in all the fields before submitting.");
+        return;
+      }
+
+      alert("Thank you for your message!");
+      
+      // Optionally clear the form
+      nameInput.value = '';
+      emailInput.value = '';
+      messageInput.value = '';
+    });
+  }
 
   // Toggle fun fact section visibility
-  toggleMoreBtn.addEventListener("click", function () {
-  if (game) {
-    game.classList.toggle("open");
+  if (toggleMoreBtn && game) {
+    toggleMoreBtn.addEventListener("click", () => {
+      game.classList.toggle("open");
+    });
   }
-});
-
 
   // Reveal a random fun fact
-  revealFactBtn?.addEventListener("click", () => {
-    if (fact) {
+  if (revealFactBtn && fact) {
+    revealFactBtn.addEventListener("click", () => {
       const randomIndex = Math.floor(Math.random() * funFacts.length);
       fact.style.display = "block";
       fact.textContent = funFacts[randomIndex];
-    }
-  });
+    });
+  }
 });
