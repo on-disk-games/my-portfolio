@@ -38,6 +38,16 @@ document.addEventListener("DOMContentLoaded", () => {
   messageInput.value = '';
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleMoreBtn = document.getElementById("toggleMoreBtn");
+  const game = document.getElementById("game");
+
+  if (toggleMoreBtn && game) {
+    toggleMoreBtn.addEventListener("click", () => {
+      game.classList.toggle("open");
+    });
+  }
+});
 
   // Toggle fun fact section visibility
   if (toggleMoreBtn && game) {
