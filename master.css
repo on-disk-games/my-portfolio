@@ -108,5 +108,13 @@ body, h1, h2, h3, h4, h5, h6, p, input, textarea, button, label {
 .game-container.open {
   max-height: 200px;
   padding: 10px;
+
+  #game {
+  display: none;
+}
+#game.open {
+  display: block;
+}
+
 }
 <link rel="stylesheet" href="css/master.css">
