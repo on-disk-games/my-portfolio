@@ -22,9 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Toggle fun fact section visibility
-  toggleMoreBtn?.addEventListener("click", () => {
-    game?.classList.toggle("open");
-  });
+  toggleMoreBtn.addEventListener("click", function () {
+  if (game) {
+    game.classList.toggle("open");
+  }
+});
+
 
   // Reveal a random fun fact
   revealFactBtn?.addEventListener("click", () => {
