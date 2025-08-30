@@ -49,13 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-  // Toggle fun fact section visibility
-  if (toggleMoreBtn && game) {
-    toggleMoreBtn.addEventListener("click", () => {
-      game.classList.toggle("open");
-    });
-  }
-
+ 
   // Reveal a random fun fact
   if (revealFactBtn && fact) {
     revealFactBtn.addEventListener("click", () => {
@@ -65,3 +59,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
